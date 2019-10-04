@@ -1,15 +1,23 @@
-const porta = 3003
-const http = require('http')
 const express = require('express')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const app = express()
-const path = require('path');
 
-app.use(express.static('static'));
+mongoose.connect('mongodb+srv://chico:alisson22@cluster0-oquqd.mongodb.net/principal?retryWrites=true&w=majority', { useNewUrlParser: true })
 
-app.get('/lala', (req, res) => {
-    res.send('iae')
+// Import Controllers
+const User = require('./controllers/User')
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post('/login', User.mobileAuthentication)
+app.get('/log', (req, res) => {
+    res.send('oi')
+
 })
+app.put('/register', User.registerUser)
 
-http.createServer(app).listen(porta, () => {
-    console.log('Porta:' + porta)
+app.listen(process.env.PORT || 3001, () => {
+    console.log('Servidor iniciado com sucesso!');
 })
