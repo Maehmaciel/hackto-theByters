@@ -6,7 +6,7 @@ const User = new mongoose.Schema({
         type: String,
         require: true
     },
-    age range: {
+    ageRange: {
         type: Number,
         require: false
     },
