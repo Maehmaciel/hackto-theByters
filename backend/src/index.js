@@ -7,16 +7,20 @@ mongoose.connect('mongodb+srv://chico:alisson22@cluster0-oquqd.mongodb.net/princ
 
 // Import Controllers
 const User = require('./controllers/User')
+const Address = require('./controllers/Address')
 
+//Import Routes
+const UserRoutes = require('./routes/user')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/login', User.mobileAuthentication)
-app.get('/log', (req, res) => {
-    res.send('oi')
-
-})
+app.get('/getcitys', Address.getCitys)
+app.get('/getaddress', Address.getAddress)
+    //app.get('/getufs', Address.getUfs)
 app.put('/register', User.registerUser)
+
+app.use('/user', UserRoutes)
 
 app.listen(process.env.PORT || 3001, () => {
     console.log('Servidor iniciado com sucesso!');

@@ -12,11 +12,11 @@ const User = new mongoose.Schema({
     },
     uf: {
         type: String,
-        require: true
+        require: false
     },
     city: {
         type: String,
-        require: true
+        require: false
     },
     password: {
         type: String,
@@ -25,7 +25,13 @@ const User = new mongoose.Schema({
     sex: {
         type: String,
         require: true
-    }
+    },
+    coins: {
+        type: Number,
+        require: true,
+        default: 0
+    },
+    historic: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Historic' }]
 })
 
 module.exports = mongoose.model('User', User)
