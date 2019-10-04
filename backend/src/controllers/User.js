@@ -10,15 +10,12 @@ class User {
     async registerUser(req, res) {
         try {
             console.log(req.body)
-            await userNotExists(req.body.email)
-            req.body.password = await encrypt(req.body.password)
 
             const user = await UserModel.create(req.body)
-
-            user.password = undefined
             const token = jwt.sign({ id: user._id }, credentials.secret, {})
 
-            return res.json({ user, token })
+            //return res.json({ user, token })
+            return res.send('Registrado')
         } catch (err) {
             console.log(err)
             return res.status(400).send(err)

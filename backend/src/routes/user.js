@@ -36,4 +36,5 @@ router.get('/', User.getProfile)
 router.put('/historic', User.createItemOnHistoric);
 router.get('/historic', User.getHistoricFromUser);
 
+
 module.exports = router
