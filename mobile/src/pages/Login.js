@@ -20,7 +20,7 @@ export default function Login({navigation}) {
   const [username, setUsername] = useState('');
 
   async function signInUser() {
-    const response = await api.post('/auth', {email: username, password});
+    const response = await api.post('/login', {email: username, password});
 
     await AsyncStorage.multiSet([
       ['@Capivara:token', response.data.token],
