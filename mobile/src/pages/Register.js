@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, StyleSheet, SafeAreaView, Image, View, TextInput, TouchableOpacity, Picker } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import logo from '../assets/logo.png'
@@ -9,18 +9,19 @@ export default function Register({ navigation }) {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
     const [sex, setSex] = useState('U')
+    const [uf, setUf] = useState('N')
 
     async function signUpUser() {
 
         if (name != null && email != null && password != null) {
-            const response = await api.post('/register', { name, email, password })
+            const response = await api.put('/register', { name, email, password, uf })
 
             await AsyncStorage.multiSet([
                 ['@Capivara:token', response.data.token],
                 ['@Capivara:user', JSON.stringify(response.data.user)]
             ])
 
-            navigation.navigate('Initial')
+            navigation.navigate('Home')
         }
 
     }
@@ -54,7 +55,45 @@ export default function Register({ navigation }) {
                     <Picker.Item label="Masculino" value="M" />
                     <Picker.Item label="Prefiro não informar" value="O" />
                 </Picker>
+            </View>
 
+            <View
+                style={styles.picker}
+            >
+                <Picker
+                    style={styles.itemPicker}
+                    selectedValue={uf}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setUf(itemValue)
+                    }>
+                    <Picker.Item label="Estado" value="N" />
+                    <Picker.Item label="AC" value="AC" />
+                    <Picker.Item label="AL" value="AL" />
+                    <Picker.Item label="AM" value="AM" />
+                    <Picker.Item label="BA" value="BA" />
+                    <Picker.Item label="CE" value="CE" />
+                    <Picker.Item label="DF" value="DF" />
+                    <Picker.Item label="ES" value="ES" />
+                    <Picker.Item label="GO" value="GO" />
+                    <Picker.Item label="MA" value="MA" />
+                    <Picker.Item label="MT" value="MT" />
+                    <Picker.Item label="MS" value="MS" />
+                    <Picker.Item label="MG" value="MG" />
+                    <Picker.Item label="PA" value="PA" />
+                    <Picker.Item label="PB" value="PB" />
+                    <Picker.Item label="PR" value="PR" />
+                    <Picker.Item label="PE" value="PE" />
+                    <Picker.Item label="PI" value="PI" />
+                    <Picker.Item label="RR" value="RR" />
+                    <Picker.Item label="RO" value="RO" />
+                    <Picker.Item label="RJ" value="RJ" />
+                    <Picker.Item label="RN" value="RN" />
+                    <Picker.Item label="RS" value="RS" />
+                    <Picker.Item label="SC" value="SC" />
+                    <Picker.Item label="SP" value="SP" />
+                    <Picker.Item label="SE" value="SE" />
+                    <Picker.Item label="TO" value="TO" />
+                </Picker>
             </View>
 
             <TextInput
@@ -81,8 +120,8 @@ export default function Register({ navigation }) {
             </TouchableOpacity>
 
             <Text style={styles.or}>ou</Text>
-            
-            <TouchableOpacity onPress={() => {navigation.navigate('Login') }} style={styles.btnRegister}>
+
+            <TouchableOpacity onPress={() => { navigation.navigate('Login') }} style={styles.btnRegister}>
                 <Text style={styles.txtBtnRegister}>Voltar</Text>
             </TouchableOpacity>
         </SafeAreaView>
