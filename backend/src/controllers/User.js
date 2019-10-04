@@ -25,22 +25,7 @@ class User {
         }
     }
 
-    async mobileAuthentication(req, res) {
-        const { email, password } = req.body
-        const user = await UserModel.findOne({ email })
 
-        if (!user) return res.status(401).send({ error: 'Usuário não encontrado' })
-
-        if (!(await bcrypt.compare(password, user.password)))
-            return res.status(401).send({ error: 'Senha incorreta.' })
-
-        user.password = undefined
-
-        const token = jwt.sign({ id: user._id }, credentials.secret, {
-            expiresIn: 86400
-        })
-        res.send({ user, token })
-    }
 
     async getProfile(req, res) {
         const user = await UserModel.findOne({ _id: req.userId }).populate('historic')
@@ -67,17 +52,6 @@ class User {
     }
 }
 
-function encrypt(data) {
-    const hash = bcrypt.hashSync(data, 5)
-    if (!hash) throw new Error()
-    return hash
-}
 
-
-async function userNotExists(email) {
-    const user = await UserModel.findOne({ email: email })
-    if (!user) return true
-    return Promise.reject('Há um usuário cadastrado com esse email')
-}
 
 module.exports = new User();
