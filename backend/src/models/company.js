@@ -10,7 +10,7 @@ const Company = new mongoose.Schema({
         type: String,
         require: true
     },
-    num_local: {
+    numLocal: {
         type: Number,
         require: true
     },
