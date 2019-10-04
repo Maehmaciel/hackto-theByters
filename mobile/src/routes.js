@@ -5,28 +5,18 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 
 import Initial from './pages/Initial';
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Profile from './pages/Profile';
-
-const AuthStack = createSwitchNavigator({
-  Initial,
-  Login,
-  Register,
-});
 
 const HomeStack = createSwitchNavigator({
-  Home: Profile,
+  Home: Initial,
 });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
-      Auth: AuthStack,
       HomeStack,
     },
     {
-      initialRouteName: 'Auth',
+      initialRouteName: 'HomeStack',
     },
   ),
 );
