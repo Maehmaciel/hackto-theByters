@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Text, StyleSheet, SafeAreaView, Image, View, TextInput, TouchableOpacity, Picker } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import logo from '../assets/logo.png'
