@@ -6,9 +6,9 @@ const User = new mongoose.Schema({
         type: String,
         require: true
     },
-    email: {
-        type: String,
-        require: true
+    ageRange: {
+        type: Number,
+        require: false
     },
     uf: {
         type: String,
@@ -17,10 +17,6 @@ const User = new mongoose.Schema({
     city: {
         type: String,
         require: false
-    },
-    password: {
-        type: String,
-        require: true
     },
     sex: {
         type: String,
@@ -31,6 +27,11 @@ const User = new mongoose.Schema({
         require: true,
         default: 0
     },
+    userType: {
+        type: String,
+        require: true
+    },
+
     historic: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Historic' }]
 })
 
