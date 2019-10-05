@@ -1,0 +1,34 @@
+<!-- HEADER -->
+<div id="header">
+    <img src="/img/logo.svg" alt="Logo do Discoderia">
+    <h2>Ei, Turista</h2>
+    <a href="/home" id="login-button" style="text-decoration: none">
+        <span>Voltar ao painel</span>
+    </a>
+
+</div>
+
+<div id="container2">
+    <h2>Atrações</h2>
+    <div class="body">
+        <div class="wrapper">
+            <input class="search" placeholder="Pesquise uma atração, um local.." type="text" id="search" />
+            <input class="submit" onclick="search()" type="button" value=" ">
+        </div>
+    </div>
+
+    {{#each list}}
+    <div class="card" onclick="window.location='/atraction/one?id={{this._id}}'" style="background-image: url('{{this.imageURL}}')">
+        <h3>{{this.name}}</h3>
+        <h4>{{this.address}}</h4>
+        <div class="tracado"></div>
+        <span>{{this.schedule}}</span>
+    </div>
+    {{/each}}
+</div>
+
+<script>
+    function search() {
+        window.location = `/atraction?keyword=${$('.search').val()}`
+    }
+</script>

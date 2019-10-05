@@ -1,0 +1,86 @@
+<!-- HEADER -->
+<div id="header">
+    <img src="/img/logo.svg" alt="Logo do Discoderia">
+    <h2>Ei, Turista</h2>
+    <a href="/chat" id="login-button" style="text-decoration: none">
+        <span>Começar agora</span>
+    </a>
+</div>
+
+<!-- BODY -->
+
+<div id="container">
+    <div class="text">
+        <h1 class="title">Bem vindo(a) à Palmas, <br> começe sua viagem por aqui!</h1>
+        <div id="features">
+            <div class="feature">
+                <img src="/img/search.svg" alt="">
+                <span>Procure atrações de acordo com o seu interesse</span>
+            </div>
+            <div class="feature">
+                <img src="/img/restaurant.svg" alt="">
+                <span>Descubra comidas típicas em restaurantes locais</span>
+            </div>
+            <div class="feature">
+                <img src="/img/hiking.svg" alt="">
+                <span>Aventure-se na serra à 40 min centro</span>
+            </div>
+            <div class="feature">
+                <img src="/img/sunrise.svg" alt="">
+                <span>Escolha uma praia para assistir o pôr do sol</span>
+            </div>
+            <div class="feature">
+                <img src="/img/capybara.svg" alt="">
+                <span>Conheça as capivaras no Parque Cesamar</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="atractions">
+        <div onclick="window.location = '/atraction?keyword=cultural'" class="atraction"
+            style="background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);">
+            <i class="fas fa-theater-masks"></i>
+            <p style="">Atrações<br>Culturais</p>
+        </div>
+        <div onclick="window.location = '/atraction?keyword=historic-places'"class="atraction" style="background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);">
+            <i class="fas fa-landmark"></i>
+            <p style="">Locais<br>Históricos</p>
+        </div>
+        <div onclick="window.location = '/atraction?keyword=ar-livre'" class="atraction" style="background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);">
+            <i class="fas fa-leaf"></i>
+            <p style="">Ao ar Livre</p>
+        </div>
+
+        <div class="atraction" onclick="window.location = '/atraction?keyword=alimentação'"
+            style="background-image: radial-gradient( circle 561px at 81.4% 88.4%, rgba(236,111,102,1) 0%, rgba(243,161,131,1) 90% );">
+            <i class="fas fa-utensils"></i>
+            <p style="">Gastronomia<br>Local</p>
+        </div>
+
+        <div onclick="window.location = '/atraction?keyword=praias'" class="atraction" style="background: linear-gradient(to right, #f46b45, #eea849);">
+            <i class="fas fa-umbrella-beach"></i>
+            <p style="">Praias</p>
+        </div>
+        <div onclick="window.location = '/atraction?keyword=hotel'" class="atraction" style="  background: linear-gradient(to left, #43cea2, #185a9d);">
+            <i class="fas fa-hotel"></i>
+            <p style="">Hotelaria</p>
+        </div>
+        <div onclick="window.location = '/atraction?keyword=lovely'" class="atraction"
+            style="background-image: linear-gradient(to right, #FF512F 0%, #DD2476 51%, #FF512F 100%)">
+            <i class="fas fa-heart"></i>
+            <p style="">Destinos<br>Românticos</p>
+        </div>
+        <div onclick="window.location = '/atraction?keyword='" class="atraction" style="background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%)">
+            <i class="fas fa-ellipsis-h"></i>
+            <p style="">Outras Atividades</p>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+{{!-- <script src="index.js"></script> --}}

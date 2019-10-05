@@ -1,0 +1,134 @@
+html {
+  height: calc(100% - 16px);
+}
+body {
+  background-image: linear-gradient(to bottom right, #730f7f, #1d094c);
+  background-attachment: fixed;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#header {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#header img {
+  height: 50px;
+  width: 50px;
+}
+
+#header h2 {
+  margin: 0;
+  padding: 5px 0 0 20px;
+  color: #ebba16;
+  font-family: "Fredoka One", cursive;
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+#header #login-button {
+  height: 20px;
+  width: 100px;
+  background-color: white;
+  margin-left: auto;
+  align-items: center;
+  display: flex;
+  padding: 10px 10px 10px 15px;
+  border-radius: 20px;
+}
+
+#header #login-button span {
+  color: #191919;
+  font-size: 13px;
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+#header #login-button:hover {
+  opacity: 0.8;
+}
+
+.title {
+  margin: 40px 15px;
+  font-size: 30px;
+  font-family: Cabin, sans-serif;
+  font-weight: 600;
+
+  color: white;
+  letter-spacing: 1px;
+}
+
+#container {
+  display: flex;
+}
+
+.text {
+  flex-grow: 2;
+}
+
+#features {
+  margin: 20px 15px;
+}
+
+#features .feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+#features .feature img {
+  width: 50px;
+  height: 50px;
+}
+
+#features .feature span {
+  font-size: 22px;
+  margin-left: 15px;
+  font-family: Cabin, sans-serif;
+  color: #ebba16;
+  font-weight: 300;
+}
+
+#atractions {
+  padding: 0 20px 0px 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#atractions div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 150px;
+  height: 150px;
+  margin-left: 10px;
+  margin-top: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+#atractions .atraction p {
+  margin: 5px;
+  color: #1d094c;
+  font-family: Cabin, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+#atractions .atraction i {
+  color: #1d094c;
+  font-size: 50px;
+}
+
+#atractions div:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
